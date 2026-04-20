@@ -1,4 +1,17 @@
 {
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff 2>/dev/null || true",
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
   "permissions": {
     "allow": [
       "Bash(git checkout:*)",
@@ -13,7 +26,9 @@
       "mcp__playwright__browser_click",
       "mcp__myDemoMcp__add",
       "Skill(update-config)",
-      "Bash(pwsh:*)"
+      "Bash(pwsh:*)",
+      "Bash(curl -s http://127.0.0.1:5000*)",
+      "Bash(mkdir -p *)"
     ],
     "deny": [],
     "ask": []

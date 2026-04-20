@@ -1,5 +1,5 @@
 from flask import render_template, request
-from models import courses
+from models import courses, videos
 import re
 
 def index():
@@ -50,3 +50,6 @@ def contact():
 
     # GET request - render empty form
     return render_template('contact.html')
+
+def videos_view():
+    return render_template('videos.html', videos=videos)

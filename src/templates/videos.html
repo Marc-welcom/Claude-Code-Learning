@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}Videos – Course Explainer{% endblock %}
+
+{% block content %}
+<section class="videos-section">
+  <h1 class="section-title">Teaching Videos</h1>
+  <p class="videos-intro">Watch free tutorials from our YouTube channel and learn at your own pace.</p>
+
+  <div class="videos-grid">
+    {% for video in videos %}
+    <div class="video-card">
+      <div class="video-embed-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/{{ video.youtube_id }}"
+          title="{{ video.title }}"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-card-body">
+        <h2 class="video-title">{{ video.title }}</h2>
+        <p class="video-description">{{ video.description }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

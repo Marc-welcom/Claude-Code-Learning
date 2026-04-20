@@ -116,5 +116,30 @@ class AppTestCase(unittest.TestCase):
         self.assertIn(b'Please enter a valid email address', response.data)
         self.assertIn(b'Please enter your address (minimum 10 characters)', response.data)
 
+    # Videos Page Tests
+    def test_videos_page_loads(self):
+        """Test that videos page returns 200 status"""
+        response = self.app.get('/videos')
+        self.assertEqual(response.status_code, 200)
+
+    def test_videos_page_contains_titles(self):
+        """Test that video titles are rendered"""
+        response = self.app.get('/videos')
+        self.assertIn(b'Python for Beginners', response.data)
+        self.assertIn(b'Flask Web Development', response.data)
+        self.assertIn(b'Data Science with Pandas', response.data)
+        self.assertIn(b'Machine Learning Crash Course', response.data)
+
+    def test_videos_page_contains_iframes(self):
+        """Test that YouTube iframes are present"""
+        response = self.app.get('/videos')
+        self.assertIn(b'youtube.com/embed/', response.data)
+        self.assertIn(b'<iframe', response.data)
+
+    def test_videos_nav_link_present(self):
+        """Test that Videos nav link appears on every page"""
+        response = self.app.get('/')
+        self.assertIn(b'href="/videos"', response.data)
+
 if __name__ == '__main__':
     unittest.main()
