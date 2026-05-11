@@ -28,6 +28,8 @@ courses = [
            ["Statistics Basics", "Python for Data Science", "Data Visualization", "Machine Learning Introduction"]),
     Course("Go Programming Essentials", "Master Go programming language from basics to advanced concepts.", "Robert Chen", "5 weeks",
            ["Go Basics and Syntax", "Goroutines and Concurrency", "Channels and Synchronization", "Web Services with Go", "Testing and Deployment"]),
+    Course("Backend Development with Nodejs", "Build scalable backend applications using Node.js and Express.", "Michael Brown", "6 weeks",
+           ["Node.js Fundamentals", "Express Framework", "REST APIs", "Database Integration with MongoDB", "Authentication and Security", "Deployment"]),
 ]
 
 # Replace youtube_id values with your actual YouTube video IDs

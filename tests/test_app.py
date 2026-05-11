@@ -21,6 +21,7 @@ class AppTestCase(unittest.TestCase):
         self.assertIn(b'Web Development with Flask', response.data)
         self.assertIn(b'Data Science Fundamentals', response.data)
         self.assertIn(b'Go Programming Essentials', response.data)
+        self.assertIn(b'Backend Development with Nodejs', response.data)
 
     def test_course(self):
         response = self.app.get('/course/1')
@@ -32,6 +33,12 @@ class AppTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Go Programming Essentials', response.data)
         self.assertIn(b'Robert Chen', response.data)
+
+    def test_nodejs_course(self):
+        response = self.app.get('/course/5')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Backend Development with Nodejs', response.data)
+        self.assertIn(b'Michael Brown', response.data)
 
     # Contact Page Tests
     def test_contact_page_loads(self):

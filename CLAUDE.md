@@ -42,9 +42,12 @@ Add unit tests for every change and verify they pass before finishing.
 
 ### Verify Changes with Playwright (MANDATORY)
 
-After implementing any new feature:
+**After implementing any new feature, you MUST:**
 
-1. Start the Flask app (`python src/app.py`)
-2. Use the Playwright MCP tool at `http://127.0.0.1:5000`
-3. Navigate to and interact with the new feature
-4. Take a screenshot and save it to `test-output/` with a descriptive filename (e.g., `feature-name-verification-YYYY-MM-DD.png`)
+1. Start the Flask app (if not already runnung - `python src/app.py`)
+2. Use the Playwright MCP tool to connect to the application at `http://127.0.0.1:5000`
+3. Navigate to and interact with the new feature to verify it works correctly
+4. Take a screenshot of the working feature
+5. Save the screenhot in the `test-output/` folder with a descriptive filename (e.g., `feature-name-verification-YYYY-MM-DD.png`)
+
+This step ensure that all features are visually verified and provides documentation of the working state of the application.
