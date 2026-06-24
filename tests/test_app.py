@@ -22,5 +22,12 @@ class AppTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Course Details', response.data)
 
+    def test_no_leaked_css_or_markers(self):
+        # Regression: raw CSS / "...existing code..." markers were pasted
+        # into layout.html and rendered as visible text on the home page.
+        response = self.app.get('/')
+        self.assertNotIn(b'...existing code...', response.data)
+        self.assertNotIn(b'box-sizing: border-box', response.data)
+
 if __name__ == '__main__':
     unittest.main()
