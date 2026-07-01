@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block title %}Videos{% endblock %}
+
+{% block content %}
+<div class="videos-page">
+  <h1>Teaching Videos</h1>
+  <p>Watch the latest teaching videos from the channel.</p>
+  <div class="video-grid">
+    {% for v in videos %}
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/{{ v.youtube_id }}"
+                title="{{ v.title }}" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+      <h3>{{ v.title }}</h3>
+      <p>{{ v.description }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

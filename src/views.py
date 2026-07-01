@@ -1,5 +1,5 @@
 from flask import render_template, abort
-from models import courses
+from models import courses, videos as videos_data
 
 # COURSES = {
 #     1: "Python Basics",
@@ -23,3 +23,7 @@ def course(course_id):
     if course is None:
         return "Course not found", abort(404)    # clean 404 instead of a 500
     return render_template("course.html", course_id=course_id, course=course)
+
+
+def videos():
+    return render_template('videos.html', videos=videos_data)

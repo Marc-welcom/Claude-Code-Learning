@@ -22,6 +22,18 @@ class AppTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Course Details', response.data)
 
+    def test_videos(self):
+        response = self.app.get('/videos')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Teaching Videos', response.data)
+        # the embed iframe should be present for each video
+        self.assertIn(b'youtube.com/embed/', response.data)
+
+    def test_videos_nav_link_present(self):
+        # the Videos tab should appear in the shared nav on every page
+        response = self.app.get('/')
+        self.assertIn(b'/videos', response.data)
+
     def test_no_leaked_css_or_markers(self):
         # Regression: raw CSS / "...existing code..." markers were pasted
         # into layout.html and rendered as visible text on the home page.

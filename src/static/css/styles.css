@@ -25,6 +25,14 @@ p { line-height:1.6; color:#444; }
 /* footer */
 .site-footer { max-width:1000px; margin:18px auto; padding:8px 20px; color:#555; font-size:13px; }
 
+/* videos page: responsive grid of embedded YouTube players */
+.video-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; margin-top:20px; }
+.video-card { background:#fff; border:1px solid #e2e8f0; border-radius:8px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.08); }
+.video-embed { position:relative; width:100%; padding-top:56.25%; } /* 16:9 aspect ratio */
+.video-embed iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+.video-card h3 { margin:12px 12px 4px; font-size:18px; }
+.video-card p { margin:0 12px 14px; font-size:14px; }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
