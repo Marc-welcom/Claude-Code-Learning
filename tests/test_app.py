@@ -34,6 +34,13 @@ class AppTestCase(unittest.TestCase):
         response = self.app.get('/')
         self.assertIn(b'/videos', response.data)
 
+    def test_index_shows_course_titles(self):
+        # The home page should list each course by its title, not "Course N"
+        response = self.app.get('/')
+        self.assertIn(b'Introduction to Python', response.data)
+        self.assertIn(b'Web Development with Flask', response.data)
+        self.assertNotIn(b'>Course 1<', response.data)
+
     def test_no_leaked_css_or_markers(self):
         # Regression: raw CSS / "...existing code..." markers were pasted
         # into layout.html and rendered as visible text on the home page.
